@@ -86,3 +86,6 @@ bellemere_de(BelleMere, Individu) :-
 	femme(Individu),
 	mere_de(BelleMere, Conjoint),
 	mari_de(Conjoint, Individu).
+
+
+% Définition des ancètres
