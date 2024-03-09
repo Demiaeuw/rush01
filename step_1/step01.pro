@@ -88,4 +88,4 @@ bellemere_de(BelleMere, Individu) :-
 	mari_de(Conjoint, Individu).
 
 
-% Définition des ancètres
+% Définition des ancètres lol
