@@ -88,4 +88,8 @@ bellemere_de(BelleMere, Individu) :-
 	mari_de(Conjoint, Individu).
 
 
-% Définition des ancètres lol
+% Definition of ancestors (recursive) based on the current knowledge
+ancetre_de(Ancetre, Descendant) :- parent_de(Ancetre, Descendant).
+ancetre_de(Ancetre, Descendant) :-
+    parent_de(Ancetre, Intermediaire),
+    ancetre_de(Intermediaire, Descendant).
