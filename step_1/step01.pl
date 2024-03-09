@@ -1,0 +1,80 @@
+femme(anne).
+femme(betty).
+femme(lisa).
+femme(sylvie).
+femme(eve).
+femme(julie).
+femme(valérie).
+homme(marc).
+homme(luc).
+homme(jean).
+homme(jules).
+homme(leon).
+homme(loic).
+homme(gerard).
+homme(jacques).
+homme(hervé).
+homme(paul).
+
+mari_de(marc, anne).
+mari_de(luc, betty).
+mari_de(jules, lisa).
+mari_de(leon, sylvie).
+mari_de(loic, eve).
+mari_de(paul, julie).
+
+femme_de(Femme, Homme) :- mari_de(Homme, Femme).
+
+parent_de(marc, jean).
+parent_de(anne, jean).
+parent_de(marc, jules).
+parent_de(anne, jules).
+parent_de(marc, leon).
+parent_de(anne, leon).
+parent_de(luc, lisa).
+parent_de(betty, lisa).
+parent_de(luc, loic).
+parent_de(betty, loic).
+parent_de(luc, gerard).
+parent_de(betty, gerard).
+parent_de(jules, jacques).
+parent_de(lisa, jacques).
+parent_de(leon, herve).
+parent_de(sylvie, herve).
+parent_de(leon, julie).
+parent_de(sylvie, julie).
+parent_de(loic, paul).
+parent_de(eve, paul).
+parent_de(loic, valerie).
+parent_de(eve, valerie).
+
+pere_de(Pere, Enfant) :- 
+	homme(Pere), 
+	parent_de(Pere, Enfant).
+
+mere_de(Mere, Enfant) :- 
+	femme(Mere), 
+	parent_de(Mere, Enfant).
+
+enfant_de(Enfant, Parent) :- 
+	parent_de(Parent, Enfant).
+
+beaupere_de(BeauPere, Individu) :- 
+	homme(Individu),
+	pere_de(BeauPere, Conjoint), 
+	femme_de(Conjoint, Individu),
+	write(BeauPere);
+	femme(Individu),
+	pere_de(BeauPere, Conjoint),
+	mari_de(Conjoint, Individu),
+	write(BeauPere).
+
+bellemere_de(BelleMere, Individu) :-
+	homme(Individu),
+	mere_de(BelleMere, Conjoint),
+	femme_de(Conjoint, Individu),
+	write(BelleMere);
+	femme(Individu),
+	mere_de(BelleMere, Conjoint),
+	mari_de(Conjoint, Individu),
+	write(BelleMere).
