@@ -14,10 +14,12 @@ afficher_maison(Numero, m(N, C, A, B, F)) :-
     write('Maison '), write(Numero), write(' : '), nl,
     write('  Nationalité : '), write(N), nl,
     write('  Couleur : '), write(C), nl,
+    (   A = poisson
     ->  write('\033[32m  Animal : \033[0m'), write(A), nl
     ;   write('  Animal : '), write(A), nl),
     write('  Boisson : '), write(B), nl,
     write('  Fume : '), write(F), nl.
+
 
 % Prédicat pour afficher la liste de maisons
 afficher_maisons([]).
