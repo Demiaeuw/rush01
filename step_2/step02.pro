@@ -15,7 +15,7 @@ afficher_maison(Numero, m(N, C, A, B, F)) :-
     write('  Nationalité : '), write(N), nl,
     write('  Couleur : '), write(C), nl,
     (   A = poisson
-    ->  write('\033[32m  Animal : \033[0m'), write(A), nl
+    ->  write('\033[32m  Animal : '), write(A), write('\033[0m'), nl
     ;   write('  Animal : '), write(A), nl),
     write('  Boisson : '), write(B), nl,
     write('  Fume : '), write(F), nl.
@@ -60,4 +60,3 @@ solve(Maisons) :-
     appartient_a(m(_, _, poisson, _, _), Maisons), % Qui a le poisson ?
     % Affichage des maisons avec numéro
     afficher_maisons_numero(Maisons, 1).
-
